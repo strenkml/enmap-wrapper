@@ -16,10 +16,7 @@ class ExampleUserDatabase extends Database {
   }
 
   static getInstance(): ExampleUserDatabase {
-    if (!this.instance) {
-      this.instance = new ExampleUserDatabase();
-    }
-    return this.instance;
+    return this.instance || (this.instance = new this());
   }
 
   addUser(userId: string, name: string, age: number): void {
